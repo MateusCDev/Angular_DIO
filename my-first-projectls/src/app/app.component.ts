@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PessoasService } from './shared/services/pessoas.service';
 
 @Component({
   selector: 'app-root',
@@ -13,23 +14,17 @@ export class AppComponent implements OnInit{
   pessoas = [
     {
       nome: 'Mateus',
-      sobrenome: 'Cesar'
-    },
-    {
-      nome: 'Tereza',
-      sobrenome: 'Cristina'
-    },
-    {
-      nome: 'Maria',
-      sobrenome: 'Eduarda'
+      sobrenome: 'Cesar',
+      idade: 0
     }
   ];
 
-  constructor(){
+  constructor(private pessoasService:PessoasService){
 
   }
 
   ngOnInit(): void {
+    this.getPessoas()
     let intervalo = setInterval(() => {
       this.contador++;
       if (this.contador === 10){
@@ -42,5 +37,9 @@ export class AppComponent implements OnInit{
     console.log('clicou em mim', nome)
   }
 
-
+  getPessoas(){
+    this.pessoasService.getPessoas().subscribe(pessoa => {
+      this.pessoas = pessoa
+    })
+  }
 }
