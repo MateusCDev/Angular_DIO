@@ -11,9 +11,9 @@ export class DataBindingComponent implements OnInit {
   imageDesc = 'essa é uma imagem';
   buttonText = 'Clique aqui';
   textRed = 'textred';
-  bgColor = 'green';
+  bgColor = 'brown';
   fontSize = '20px';
-  widthImg = 600;
+  widthImg = 200;
   textInput = '';
   number = 0;
   destroy = false;
